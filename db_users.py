@@ -10,6 +10,14 @@ con = psycopg2.connect(
 
 cur = con.cursor()
 
+cur.execute('''CREATE TABLE IF NOT EXISTS user_questionnaire
+     (id INT NOT NULL,
+     name TEXT NULL,
+     age INT NULL,
+     sex TEXT NULL,
+     state TEXT NOT NULL);''')
+con.commit()
+
 
 def check_and_add_user(message, name='Nick', age='NULL', sex='NULL', state='Старт'):
     if cur.execute(f'SELECT name FROM user_questionnaire WHERE id = {message.from_user.id}') is None:
