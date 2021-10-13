@@ -178,7 +178,3 @@ def come_back_to_sex(message):
     sex = db_users.cur.fetchone()
     message.text = sex[0]
     get_user_sex(message)
-
-
-if __name__ == '__main__':
-    bot.infinity_polling()

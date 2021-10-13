@@ -2,6 +2,8 @@ from telebot import types
 
 TOKEN = '2077362215:AAFoob8v4os8AaudWomiUZwPwnKKHAF7xAc'
 
+APP_NAME = 'questionnairebot'
+
 STATES = {
     'state_1': 'Имя',
     'state_2': 'Возраст',

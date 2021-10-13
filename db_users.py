@@ -2,14 +2,6 @@ import os
 
 import psycopg2
 
-# con = psycopg2.connect(
-#     database="postgres",
-#     user="postgres",
-#     password="Kolya252003",
-#     host="127.0.0.1",
-#     port="5432"
-# )
-
 DATABASE_URL = os.environ['DATABASE_URL']
 con = psycopg2.connect(DATABASE_URL, sslmode='require')
 
