@@ -1,9 +1,0 @@
-.idea
-__pychache__
-
-venv
-
-config.py
-
-Procfile
-*.txt
