@@ -118,7 +118,7 @@ def change_user_name(message):
 
 @bot.message_handler(func=lambda message: db_users.get_current_state(message.from_user.id) == config.STATES['state_8'])
 def change_user_age(message):
-    checking_age = validators.check_age(message.text)
+    checking_age = validators.check_age(message.text, message)
     if message.text == 'Назад':
         db_users.set_new_state(message.from_user.id, config.STATES['state_4'])
         message.text = 'Настройки'
