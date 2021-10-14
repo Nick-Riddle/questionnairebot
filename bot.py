@@ -141,6 +141,7 @@ def change_user_sex(message):
     checking_sex = validators.check_sex(message.text)
     if message.text == 'Назад':
         db_users.set_new_state(message.from_user.id, config.STATES['state_4'])
+        message.text = 'Настройки'
         menu(message)
     if checking_sex:
         bot.send_message(message.from_user.id, f'{checking_sex}. Попробуйте снова.')
