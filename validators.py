@@ -1,6 +1,3 @@
-from bot import bot
-
-
 def check_name(name):
     if not name.isalpha():
         return 'Вы ввели не строку...'
@@ -8,8 +5,8 @@ def check_name(name):
         return 'Строка должна содержать в себе не более 20 и не менее 2 символов...'
 
 
-def check_age(age, message):
-    bot.send_message(message.from_user.id, 'Ваш пол?:')
+def check_age(age):
+    print('dfjsgkjdfgksdfgk')
     if not age.isdigit():
         return 'Вы ввели не число...'
     elif not 2 < age < 102:
