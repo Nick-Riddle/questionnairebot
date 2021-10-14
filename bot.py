@@ -37,10 +37,10 @@ def get_user_age(message):
     if message.text == 'Назад':
         command_start(message)
     elif checking_age:
-        bot.send_message(message.from_user.id, 'Ваш пол?:', reply_markup=keyboard_sex)
         bot.send_message(message.from_user.id, f'{checking_age} Попробуйте снова.')
         come_back_to_name(message)
     else:
+        bot.send_message(message.from_user.id, 'Ваш пол?:')
         db_users.cur.execute(f"UPDATE user_questionnaire SET age = {message.text} WHERE id = {message.from_user.id}")
         db_users.con.commit()
         bot.send_message(message.from_user.id, 'Ваш пол?:', reply_markup=keyboard_sex)
