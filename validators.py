@@ -33,10 +33,8 @@ def check_name(name):
 def check_age(age):
     if not age.isdigit():
         return 'Вы ввели не число...'
-    elif not 2 < age < 102:
+    if not 2 < age < 102:
         return 'Вам должно быть от 2-102...'
-    else:
-        return False
     # try:
     #     age = int(age)
     #     if not 2 < age < 102:
