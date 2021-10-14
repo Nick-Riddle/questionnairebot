@@ -33,14 +33,13 @@ def get_user_name(message):
 
 @bot.message_handler(func=lambda message: db_users.get_current_state(message.from_user.id) == config.STATES['state_2'])
 def get_user_age(message):
-    checking_age = validators.check_age(message.text)
+    checking_age = validators.check_age(message.text, message)
     if message.text == 'Назад':
         command_start(message)
     elif checking_age:
         bot.send_message(message.from_user.id, f'{checking_age} Попробуйте снова.')
         come_back_to_name(message)
     else:
-        bot.send_message(message.from_user.id, 'Ваш пол?:')
         db_users.cur.execute(f"UPDATE user_questionnaire SET age = {message.text} WHERE id = {message.from_user.id}")
         db_users.con.commit()
         bot.send_message(message.from_user.id, 'Ваш пол?:', reply_markup=keyboard_sex)
