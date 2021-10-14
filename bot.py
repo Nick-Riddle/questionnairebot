@@ -143,7 +143,7 @@ def change_user_sex(message):
         db_users.set_new_state(message.from_user.id, config.STATES['state_4'])
         message.text = 'Настройки'
         menu(message)
-    if checking_sex:
+    elif checking_sex:
         bot.send_message(message.from_user.id, f'{checking_sex}. Попробуйте снова.')
         message.text = 'Сменить пол'
         db_users.set_new_state(message.from_user.id, config.STATES['state_6'])
