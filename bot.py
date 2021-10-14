@@ -6,6 +6,7 @@ import validators
 
 bot = telebot.TeleBot(token=config.TOKEN)
 
+keyboard_settings = config.generate_keyboard('Сменить имя', 'Сменить возраст', 'Сменить пол', 'Назад')
 keyboard_menu = config.generate_keyboard('Инфа про меня', 'Настройки')
 keyboard_sex = config.generate_keyboard('Мужской', 'Женский', 'Назад')
 keyboard_back = config.generate_keyboard('Назад')
@@ -70,7 +71,6 @@ def menu(message):
                          reply_markup=keyboard_back)
         db_users.set_new_state(message.from_user.id, config.STATES['state_5'])
     elif message.text == 'Настройки':
-        keyboard_settings = config.generate_keyboard('Сменить имя', 'Сменить возраст', 'Сменить пол', 'Назад')
         bot.send_message(message.from_user.id, 'Настройки:', reply_markup=keyboard_settings)
         db_users.set_new_state(message.from_user.id, config.STATES['state_6'])
 
@@ -145,7 +145,7 @@ def change_user_sex(message):
         menu(message)
     if checking_sex:
         bot.send_message(message.from_user.id, f'{checking_sex}. Попробуйте снова.')
-        message.text = 'Сменить имя'
+        message.text = 'Сменить пол'
         db_users.set_new_state(message.from_user.id, config.STATES['state_6'])
         settings(message)
     else:
