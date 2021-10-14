@@ -34,7 +34,17 @@ def check_age(age):
     if not age.isdigit():
         return 'Вы ввели не число...'
     elif not 2 < age < 102:
-        'Вам должно быть от 2-102...'
+        return 'Вам должно быть от 2-102...'
+    else:
+        return False
+    # try:
+    #     age = int(age)
+    #     if not 2 < age < 102:
+    #         raise TooManyOrLessYears('Вам должно быть от 2-102...')
+    # except ValueError:
+    #     return 'Вы ввели не число...'
+    # except TooManyOrLessYears as tmly:
+    #     return tmly
 
 
 def check_sex(answer):
