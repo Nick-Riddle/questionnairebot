@@ -134,3 +134,6 @@ dmypy.json
 # My python files
 config.py
 runserver.py
+
+# My directories
+.idea/
