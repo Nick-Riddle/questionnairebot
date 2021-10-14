@@ -31,14 +31,10 @@ def check_name(name):
 
 
 def check_age(age):
-    try:
-        age = int(age)
-        if not 2 < age < 102:
-            raise TooManyOrLessYears('Вам должно быть от 2-102...')
-    except ValueError:
+    if not age.isdigit():
         return 'Вы ввели не число...'
-    except TooManyOrLessYears as tmly:
-        return tmly
+    elif not 2 < age < 102:
+        'Вам должно быть от 2-102...'
 
 
 def check_sex(answer):
